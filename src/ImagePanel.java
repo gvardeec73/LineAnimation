@@ -13,7 +13,7 @@ public class ImagePanel extends JPanel {
     private int imageHeight = 0;
     public ImagePanel() {
         try {
-            image = ImageIO.read(new File("c:\\Users\\FORMULA\\IdeaProjects\\LineAnimation\\ant.png"));
+            image = ImageIO.read(new File("c:\\Users\\FORMULA\\IdeaProjects\\LineAnimation\\kolobok.jpg"));
             imageHeight = image.getHeight();
             imageWidth = image.getWidth();
         } catch (IOException e) {
@@ -26,10 +26,14 @@ public class ImagePanel extends JPanel {
         super.paintComponent(g);
 
         g.drawImage(image,x,y,this);
-        x++;
-        y++;
-        if (x > ImagePanel.this.getWidth() + imageWidth) { x = 0; y = 0;}
-        if (y > ImagePanel.this.getHeight() + imageHeight) { x = 0; y = 0;}
+        if (x < ImagePanel.this.getWidth() - imageWidth && y == 0) x++;
+        if (x == ImagePanel.this.getWidth() - imageWidth && y < ImagePanel.this.getHeight() - imageHeight) y++;
+        if (x >= 0 && y == ImagePanel.this.getHeight() - imageHeight) x--;
+        if (x == 0 && y>=0) y--;
+       // x++;
+      //  y++;
+       // if (x > ImagePanel.this.getWidth() + imageWidth) { x = 0; y = 0;}
+      //  if (y > ImagePanel.this.getHeight() + imageHeight) { x = 0; y = 0;}
         //System.out.println(y);
     }
 
