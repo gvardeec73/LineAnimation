@@ -10,6 +10,7 @@ public class Main {
         window.setSize(600, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.add(imagePanel);
+
         window.setVisible(true);
 
         ActionListener moveImage = new ActionListener() {
@@ -19,7 +20,7 @@ public class Main {
             }
         };
 
-        Timer speedTimer = new Timer(10,moveImage);
+        Timer speedTimer = new Timer(3,moveImage);
         speedTimer.start();
     }
 }
